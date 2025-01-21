@@ -11,7 +11,7 @@ const poses = [
 ];
 
 const poseImage = document.getElementById("poseImage");
-const generatePoseButton = document.getElementById("generatePose");
+const buttonContainer = document.getElementById("generatePose");
 
 // Function to generate a random pose
 function generateRandomPose() {
@@ -22,7 +22,13 @@ function generateRandomPose() {
   poseImage.src = randomPose;
   poseImage.style.display = "block";
   placeholderText.style.display = "none";
+
+  buttonContainer.outerHTML = `
+    <a href="https://www.instagram.com" id="instagramButton" target="_blank">
+      Go To Instagram
+    </a>
+  `;
 }
 
 // Attach event listener to the button
-generatePoseButton.addEventListener("click", generateRandomPose);
+buttonContainer.addEventListener("click", generateRandomPose);
